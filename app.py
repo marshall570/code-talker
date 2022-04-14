@@ -39,16 +39,17 @@ class Ui_MainWindow(object):
 
             qr_image.paste(logo, pos, logo)
 
-        if not os.path.exists('tmp'):
-            os.makedirs('tmp')
+        path = os.path.expanduser('~') + '/.cache/codetalker/'
+        
+        if not os.path.exists(path):
+            os.makedirs(path)
 
-        path = 'tmp/temp_code.png'
         if platform.system() == 'Windows':
             path.replace('/', '\\')
 
-        self.qr_code = qr_image.save(path)
+        self.qr_code = qr_image.save(path + 'temp_code.png')
 
-        image = QtGui.QPixmap(path)
+        image = QtGui.QPixmap(path + 'temp_code.png')
         self.img_box.setPixmap(image)
 
     def icon_clicked(self):
@@ -73,7 +74,7 @@ class Ui_MainWindow(object):
 
     def save_clicked(self):
         path = os.path.expanduser('~') + '/Downloads'
-        tmp_path = 'tmp/temp_code.png'
+        tmp_path = os.path.expanduser('~') + '/.cache/codetalker/temp_code.png'
 
         if platform.system() == 'Windows':
             path.replace('/', '\\')
