@@ -85,7 +85,7 @@ class Ui_MainWindow(object):
             dialog, "Salvar arquivo", path, "Arquivos de Imagem (*.png)")
 
         if not filename.endswith('.png'):
-            filename += filename + '.png'
+            filename += '.png'
 
         shutil.copy(tmp_path, filename)
 
