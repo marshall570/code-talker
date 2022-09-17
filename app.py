@@ -13,7 +13,6 @@ qr_constructor = qrcode.QRCode(
     error_correction=qrcode.constants.ERROR_CORRECT_H
 )
 
-
 class Ui_MainWindow(object):
     color = ''
     icon = ''
@@ -197,8 +196,6 @@ class Ui_MainWindow(object):
 
 if __name__ == "__main__":
     import sys
-    os.system('python -m pip install -q qrcode pillow pyqt5')
-
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
